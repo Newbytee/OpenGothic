@@ -476,11 +476,11 @@ void Gothic::updateAnimation(uint64_t dt) {
   }
 
 void Gothic::quickSave() {
-  save("save_slot_0.sav","Quick save");
+  save(SystemApi::getDataPathBase() + "save_slot_0.sav","Quick save");
   }
 
 void Gothic::quickLoad() {
-  load("save_slot_0.sav");
+  load(SystemApi::getDataPathBase() + "save_slot_0.sav");
   }
 
 void Gothic::save(std::string_view slot, std::string_view name) {

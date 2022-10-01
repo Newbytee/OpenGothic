@@ -834,7 +834,7 @@ void GameMenu::execSaveGame(const GameMenu::Item& item) {
     return;
 
   char fname[64]={};
-  std::snprintf(fname,sizeof(fname)-1,"save_slot_%d.sav",int(id));
+  std::snprintf(fname,sizeof(fname)-1,(SystemApi::getDataPathBase() + "save_slot_%d.sav").c_str(),int(id));
   Gothic::inst().save(fname,item.handle.text[0].c_str());
   }
 
@@ -844,7 +844,7 @@ void GameMenu::execLoadGame(const GameMenu::Item &item) {
     return;
 
   char fname[64]={};
-  std::snprintf(fname,sizeof(fname)-1,"save_slot_%d.sav",int(id));
+  std::snprintf(fname,sizeof(fname)-1,(SystemApi::getDataPathBase() + "save_slot_%d.sav").c_str(),int(id));
   if(!FileUtil::exists(TextCodec::toUtf16(fname)))
     return;
   Gothic::inst().load(fname);
@@ -905,7 +905,7 @@ void GameMenu::updateSavTitle(GameMenu::Item& sel) {
     return;
 
   char fname[64]={};
-  std::snprintf(fname,sizeof(fname)-1,"save_slot_%d.sav",int(id));
+  std::snprintf(fname,sizeof(fname)-1,(SystemApi::getDataPathBase() + "save_slot_%d.sav").c_str(),int(id));
 
   if(!FileUtil::exists(TextCodec::toUtf16(fname))) {
     sel.handle.text[0] = "---";
@@ -972,7 +972,7 @@ bool GameMenu::implUpdateSavThumb(GameMenu::Item& sel) {
     return false;
 
   char fname[64]={};
-  std::snprintf(fname,sizeof(fname)-1,"save_slot_%d.sav",int(id));
+  std::snprintf(fname,sizeof(fname)-1,(SystemApi::getDataPathBase() + "save_slot_%d.sav").c_str(),int(id));
 
   if(!FileUtil::exists(TextCodec::toUtf16(fname)))
     return false;

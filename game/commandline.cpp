@@ -36,9 +36,9 @@ CommandLine::CommandLine(int argc, const char** argv) {
       ++i;
       if(i<argc){
         if(std::strcmp(argv[i],"q")==0) {
-          saveDef = "save_slot_0.sav";
+          saveDef = SystemApi::getDataPathBase() + "save_slot_0.sav";
           } else {
-          saveDef = std::string("save_slot_")+argv[i]+".sav";
+          saveDef = SystemApi::getDataPathBase() + std::string("save_slot_")+argv[i]+".sav";
           }
         }
       }
